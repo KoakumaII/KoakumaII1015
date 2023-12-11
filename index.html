@@ -57,7 +57,24 @@
 	</div>
 
 </div>
+<h1>查詢QA(如果可以的話，就在搜尋框中打 什麼)</h1>
+    <input type="text" id="query" placeholder="請輸入關鍵字">
+    <button onclick="search()">Search</button>
+    <p id="result"></p>
 
+    <script> 
+        function search() {
+            var query = document.getElementById('query').value;
+            var url = 'https://script.google.com/macros/s/AKfycbw3-IdQepSGal1pyXd6D1ZwaTHUXZRJR89FboO9pyhH9j1oFkJtCA8K7aAWuC5nTwZy/exec?q=' + encodeURIComponent(query);
+
+            fetch(url)
+                .then(response => response.text())
+                .then(text => document.getElementById('result').innerText = text)
+                .catch(error => console.error('Error:', error));
+
+        }
+    </script>
+    </script>
 </body>
 </html>
 
